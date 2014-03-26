@@ -9,12 +9,12 @@ import org.springframework.stereotype.Component;
 import com.adarrivi.app.action.CreateUserAction;
 import com.adarrivi.app.action.FindAllAction;
 import com.adarrivi.app.entity.User;
-import com.adarrivi.external.inmemory.InMemoryConfiguration;
+import com.adarrivi.external.hsqldb.HsqlDbConfiguration;
 
 @Component
-public class InMemoryMain {
+public class HsqlDbMain {
 
-    private static final Logger LOG = LoggerFactory.getLogger(InMemoryMain.class);
+    private static final Logger LOG = LoggerFactory.getLogger(HsqlDbMain.class);
     @Autowired
     private CreateUserAction createUserAction;
     @Autowired
@@ -22,9 +22,9 @@ public class InMemoryMain {
 
     @SuppressWarnings("resource")
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(InMemoryConfiguration.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(HsqlDbConfiguration.class);
         applicationContext.registerShutdownHook();
-        InMemoryMain mainBean = applicationContext.getBean(InMemoryMain.class);
+        HsqlDbMain mainBean = applicationContext.getBean(HsqlDbMain.class);
         mainBean.start();
     }
 

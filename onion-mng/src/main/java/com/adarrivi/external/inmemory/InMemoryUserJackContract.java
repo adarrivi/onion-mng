@@ -1,4 +1,4 @@
-package com.adarrivi.external;
+package com.adarrivi.external.inmemory;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,13 +7,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 import com.adarrivi.app.contract.UserAdapter;
 import com.adarrivi.app.contract.UserJackContract;
 import com.adarrivi.app.entity.User;
 
-@Component
+//@Component
 public class InMemoryUserJackContract implements UserJackContract {
 
     private Map<String, Integer> userContainer = new HashMap<>();

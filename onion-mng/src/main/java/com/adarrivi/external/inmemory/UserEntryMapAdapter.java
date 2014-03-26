@@ -1,4 +1,4 @@
-package com.adarrivi.external;
+package com.adarrivi.external.inmemory;
 
 import java.util.AbstractMap;
 import java.util.Map.Entry;
