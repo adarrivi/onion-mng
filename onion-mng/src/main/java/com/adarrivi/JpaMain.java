@@ -7,15 +7,15 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.adarrivi.core.action.CreateUserAction;
 import com.adarrivi.core.action.FindAllAction;
 import com.adarrivi.core.entity.User;
-import com.adarrivi.external.inmemory.InMemoryConfiguration;
+import com.adarrivi.external.jpa.JpaConfiguration;
 
-public class InMemoryMain {
+public class JpaMain {
 
-    private static final Logger LOG = LoggerFactory.getLogger(InMemoryMain.class);
+    private static final Logger LOG = LoggerFactory.getLogger(JpaMain.class);
 
     @SuppressWarnings("resource")
     public static void main(String[] args) {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(InMemoryConfiguration.class);
+        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(JpaConfiguration.class);
         applicationContext.registerShutdownHook();
         FindAllAction findAllAction = applicationContext.getBean(FindAllAction.class);
         CreateUserAction createUserAction = applicationContext.getBean(CreateUserAction.class);

@@ -7,12 +7,13 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import com.adarrivi.app.contract.UserAdapter;
-import com.adarrivi.app.contract.UserJackContract;
-import com.adarrivi.app.entity.User;
+import com.adarrivi.core.contract.UserAdapter;
+import com.adarrivi.core.contract.UserJackContract;
+import com.adarrivi.core.entity.User;
 
-//@Component
+@Service
 public class InMemoryUserJackContract implements UserJackContract {
 
     private Map<String, Integer> userContainer = new HashMap<>();

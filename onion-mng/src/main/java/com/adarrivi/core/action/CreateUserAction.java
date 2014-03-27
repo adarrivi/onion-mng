@@ -1,10 +1,10 @@
-package com.adarrivi.app.action;
+package com.adarrivi.core.action;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.adarrivi.app.contract.UserJackContract;
-import com.adarrivi.app.entity.User;
+import com.adarrivi.core.contract.UserJackContract;
+import com.adarrivi.core.entity.User;
 
 @Service
 public class CreateUserAction {

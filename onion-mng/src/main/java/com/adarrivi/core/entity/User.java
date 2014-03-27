@@ -1,4 +1,4 @@
-package com.adarrivi.app.entity;
+package com.adarrivi.core.entity;
 
 public class User {
 

@@ -1,4 +1,4 @@
-package com.adarrivi.external.hsqldb;
+package com.adarrivi.external.jpa;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "User")
-class HsqlDbUserEntity {
+class JpaUserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,11 +19,11 @@ class HsqlDbUserEntity {
     @Column
     private int age;
 
-    HsqlDbUserEntity() {
+    JpaUserEntity() {
         // Needed by spring
     }
 
-    HsqlDbUserEntity(String name, int age) {
+    JpaUserEntity(String name, int age) {
         this.name = name;
         this.age = age;
     }

@@ -10,12 +10,12 @@
 		<jdk.version>1.7</jdk.version>
 		<org.slf4j.version>1.7.6</org.slf4j.version>
 		<mockito.version>1.9.5</mockito.version>
-		<junit.version>4.11</junit.version>
 		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<org.springframework.data-jpa.version>1.5.0.RELEASE</org.springframework.data-jpa.version>
 		<org.hibernate.jpa.version>1.0.1.Final</org.hibernate.jpa.version>
-		<org.hibernate.entitymanager.version>4.2.5.Final</org.hibernate.entitymanager.version>
+		<hibernate.version>4.2.9.Final</hibernate.version>
 		<hsqldb.version>2.3.2</hsqldb.version>
+		<junit.version>4.11</junit.version>
 		<sonar.language>java</sonar.language>
 	</properties>
 
@@ -34,7 +34,6 @@
 			<version>${org.slf4j.version}</version>
 		</dependency>
 
-		<!-- Dependency injection container -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -48,35 +47,34 @@
 			</exclusions>
 		</dependency>
 
-		<!-- *** Embedded hsqldb with Jpa and hibernate *** -->
-		<!-- Needed for create the embedded database -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- JPA repositories -->
+		
 		<dependency>
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-jpa</artifactId>
 			<version>${org.springframework.data-jpa.version}</version>
 		</dependency>
-		<!-- Spring orm to link with hibernate -->
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
 			<version>${org.springframework.version}</version>
 		</dependency>
-		<!-- Orm mapping -->
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>${org.hibernate.jpa.version}</version>
-		</dependency>
+
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
-			<version>${org.hibernate.entitymanager.version}</version>
+			<version>${hibernate.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 		<!-- Embedded Database -->
@@ -85,7 +83,6 @@
 			<artifactId>hsqldb</artifactId>
 			<version>${hsqldb.version}</version>
 		</dependency>
-
 
 		<!-- Testing dependencies -->
 		<dependency>

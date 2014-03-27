@@ -1,6 +1,6 @@
-package com.adarrivi.app.contract;
+package com.adarrivi.core.contract;
 
-import com.adarrivi.app.entity.User;
+import com.adarrivi.core.entity.User;
 
 public interface UserAdapter<K> {
 
