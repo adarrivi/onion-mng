@@ -9,8 +9,8 @@ import java.util.Map.Entry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.adarrivi.core.contract.UserAdapter;
-import com.adarrivi.core.contract.UserJackContract;
+import com.adarrivi.core.dao.UserAdapter;
+import com.adarrivi.core.dao.UserJackContract;
 import com.adarrivi.core.entity.User;
 
 @Service

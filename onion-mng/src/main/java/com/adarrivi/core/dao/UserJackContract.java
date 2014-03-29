@@ -1,4 +1,4 @@
-package com.adarrivi.core.contract;
+package com.adarrivi.core.dao;
 
 import java.util.List;
 

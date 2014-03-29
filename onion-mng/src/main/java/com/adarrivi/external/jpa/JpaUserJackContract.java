@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.contract.UserJackContract;
+import com.adarrivi.core.dao.UserJackContract;
 import com.adarrivi.core.entity.User;
 
 @Service

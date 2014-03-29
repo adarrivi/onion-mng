@@ -5,7 +5,7 @@ import java.util.Map.Entry;
 
 import org.springframework.stereotype.Component;
 
-import com.adarrivi.core.contract.UserAdapter;
+import com.adarrivi.core.dao.UserAdapter;
 import com.adarrivi.core.entity.User;
 
 @Component("userEntryMapAdapter")

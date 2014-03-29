@@ -2,7 +2,7 @@ package com.adarrivi.external.jpa;
 
 import org.springframework.stereotype.Component;
 
-import com.adarrivi.core.contract.UserAdapter;
+import com.adarrivi.core.dao.UserAdapter;
 import com.adarrivi.core.entity.User;
 
 @Component

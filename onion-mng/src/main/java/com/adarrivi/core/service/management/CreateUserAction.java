@@ -1,20 +1,18 @@
-package com.adarrivi.core.action;
-
-import java.util.List;
+package com.adarrivi.core.service.management;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.adarrivi.core.contract.UserJackContract;
+import com.adarrivi.core.dao.UserJackContract;
 import com.adarrivi.core.entity.User;
 
 @Service
-public class FindAllAction {
+public class CreateUserAction {
 
     @Autowired
     private UserJackContract userJackContract;
 
-    public List<User> findAll() {
-        return userJackContract.findAll();
+    public void createUser(User newUser) {
+        userJackContract.save(newUser);
     }
 }

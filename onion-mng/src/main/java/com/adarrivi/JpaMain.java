@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.adarrivi.core.action.CreateUserAction;
-import com.adarrivi.core.action.FindAllAction;
 import com.adarrivi.core.entity.User;
+import com.adarrivi.core.service.FindAllAction;
+import com.adarrivi.core.service.management.CreateUserAction;
 import com.adarrivi.external.jpa.JpaConfiguration;
 
 public class JpaMain {
