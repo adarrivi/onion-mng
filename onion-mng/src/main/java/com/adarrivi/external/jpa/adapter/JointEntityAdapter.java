@@ -5,6 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Joint;
+import com.adarrivi.external.jpa.dao.repository.BoneJpaRepository;
+import com.adarrivi.external.jpa.entity.BoneEntity;
 import com.adarrivi.external.jpa.entity.JointEntity;
 
 @Component("jointEntityAdapter")
@@ -12,11 +14,14 @@ public class JointEntityAdapter implements EntityAdapter<Joint, JointEntity> {
 
     @Autowired
     private BoneEntityAdapter boneEntityAdapter;
+    @Autowired
+    private BoneJpaRepository boneJpaRepository;
 
     @Override
     public JointEntity convertFrom(Joint from) {
-        return new JointEntity(from.getName(), from.getRelativePosition(), boneEntityAdapter.convertFrom(from.getBone1()),
-                boneEntityAdapter.convertFrom(from.getBone2()));
+        BoneEntity boneEntity1 = boneJpaRepository.findByName(from.getBone1().getName());
+        BoneEntity boneEntity2 = boneJpaRepository.findByName(from.getBone2().getName());
+        return new JointEntity(from.getName(), from.getRelativePosition(), boneEntity1, boneEntity2);
     }
 
     @Override

@@ -16,7 +16,7 @@ import com.adarrivi.core.entity.RelativePosition;
 public class JointEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column
     private String name;

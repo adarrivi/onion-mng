@@ -11,7 +11,9 @@ import org.springframework.transaction.annotation.Transactional;
 import com.adarrivi.core.dao.CrudDao;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.external.jpa.adapter.JointEntityAdapter;
+import com.adarrivi.external.jpa.dao.repository.BoneJpaRepository;
 import com.adarrivi.external.jpa.dao.repository.JointJpaRepository;
+import com.adarrivi.external.jpa.entity.BoneEntity;
 import com.adarrivi.external.jpa.entity.JointEntity;
 
 @Repository("jointDao")
@@ -22,11 +24,15 @@ public class JointDaoJpa implements CrudDao<Joint> {
     private JointJpaRepository jointJpaRepository;
     @Autowired
     private JointEntityAdapter jointEntityAdapter;
+    @Autowired
+    private BoneJpaRepository boneJpaRepository;
 
     @Override
     @Transactional
     public void create(Joint entity) {
-        jointJpaRepository.saveAndFlush(jointEntityAdapter.convertFrom(entity));
+        BoneEntity boneEntity = boneJpaRepository.findAll().get(0);
+        JointEntity jointEntity = new JointEntity(entity.getName(), entity.getRelativePosition(), boneEntity, boneEntity);
+        jointJpaRepository.saveAndFlush(jointEntity);
     }
 
     @Override

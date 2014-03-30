@@ -21,7 +21,7 @@ import com.adarrivi.core.entity.RelativePosition;
 public class MuscleEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @Column
     private String name;
@@ -30,16 +30,17 @@ public class MuscleEntity {
 
     @ManyToMany(cascade = { CascadeType.DETACH })
     @JoinTable(name = "MuscleAnchor", joinColumns = { @JoinColumn(name = "muscleId", referencedColumnName = "id") }, inverseJoinColumns = { @JoinColumn(name = "anchorId", referencedColumnName = "id") })
-    private List<? extends AnchorEntity> anchors = new ArrayList<>();
+    private List<AnchorEntity> anchors = new ArrayList<>();
 
     MuscleEntity() {
         // Needed by hibernate
     }
 
-    public MuscleEntity(String name, RelativePosition relativePosition, List<AnchorEntity> anchors) {
+    @SuppressWarnings("unchecked")
+    public MuscleEntity(String name, RelativePosition relativePosition, List<? extends AnchorEntity> anchors) {
         this.name = name;
         this.relativePosition = relativePosition;
-        this.anchors = anchors;
+        this.anchors = (List<AnchorEntity>) anchors;
     }
 
     public String getName() {
