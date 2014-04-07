@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.dao.CrudDao;
+import com.adarrivi.core.contract.CrudContract;
 import com.adarrivi.core.entity.Bone;
 import com.adarrivi.relational.adapter.BoneEntityAdapter;
 import com.adarrivi.relational.dao.repository.BoneJpaRepository;
@@ -16,7 +16,7 @@ import com.adarrivi.relational.entity.BoneEntity;
 
 @Repository("boneDao")
 @Transactional(readOnly = true)
-public class BoneDaoJpa implements CrudDao<Bone> {
+public class BoneDaoJpa implements CrudContract<Bone> {
 
     @Autowired
     private BoneJpaRepository boneJpaRepository;

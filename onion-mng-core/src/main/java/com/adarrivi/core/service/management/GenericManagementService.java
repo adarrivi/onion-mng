@@ -2,22 +2,22 @@ package com.adarrivi.core.service.management;
 
 import java.util.Collection;
 
-import com.adarrivi.core.dao.CrudDao;
+import com.adarrivi.core.contract.CrudContract;
 
 abstract class GenericManagementService<K> {
 
-    private CrudDao<K> crudDao;
+    private CrudContract<K> crudContract;
 
-    protected GenericManagementService(CrudDao<K> crudDao) {
-        this.crudDao = crudDao;
+    protected GenericManagementService(CrudContract<K> crudContract) {
+        this.crudContract = crudContract;
     }
 
     public void create(K entity) {
-        crudDao.create(entity);
+        crudContract.create(entity);
     }
 
     public Collection<K> findAll() {
-        return crudDao.findAll();
+        return crudContract.findAll();
     }
 
 }

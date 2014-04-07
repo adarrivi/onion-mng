@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.dao.CrudDao;
+import com.adarrivi.core.contract.CrudContract;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.relational.adapter.FasciaEntityAdapter;
 import com.adarrivi.relational.dao.repository.FasciaJpaRepository;
@@ -16,7 +16,7 @@ import com.adarrivi.relational.entity.FasciaEntity;
 
 @Repository("fasciaDao")
 @Transactional(readOnly = true)
-public class FasciaDaoJpa implements CrudDao<Fascia> {
+public class FasciaDaoJpa implements CrudContract<Fascia> {
 
     @Autowired
     private FasciaJpaRepository fasciaJpaRepository;

@@ -1,8 +1,8 @@
-package com.adarrivi.core.dao;
+package com.adarrivi.core.contract;
 
 import java.util.Collection;
 
-public interface CrudDao<K> {
+public interface CrudContract<K> {
 
     void create(K entity);
 
