@@ -26,9 +26,4 @@ public class FasciaDaoInMemory extends GenericInMemoryDao<Fascia, FasciaJson> {
         return "fascia::";
     }
 
-    @Override
-    protected Class<FasciaJson> getEntityClass() {
-        return FasciaJson.class;
-    }
-
 }

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Joint;
-import com.adarrivi.relational.dao.repository.BoneJpaRepository;
+import com.adarrivi.relational.contract.repository.BoneJpaRepository;
 import com.adarrivi.relational.entity.BoneEntity;
 import com.adarrivi.relational.entity.JointEntity;
 

@@ -26,9 +26,4 @@ public class JointDaoInMemory extends GenericInMemoryDao<Joint, JointJson> {
         return "joint::";
     }
 
-    @Override
-    protected Class<JointJson> getEntityClass() {
-        return JointJson.class;
-    }
-
 }

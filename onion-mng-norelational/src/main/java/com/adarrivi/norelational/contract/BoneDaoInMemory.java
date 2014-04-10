@@ -26,9 +26,4 @@ public class BoneDaoInMemory extends GenericInMemoryDao<Bone, BoneJson> {
         return "bone::";
     }
 
-    @Override
-    protected Class<BoneJson> getEntityClass() {
-        return BoneJson.class;
-    }
-
 }

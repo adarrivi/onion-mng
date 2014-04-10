@@ -26,9 +26,4 @@ public class MuscleDaoInMemory extends GenericInMemoryDao<Muscle, MuscleJson> {
         return "muscle::";
     }
 
-    @Override
-    protected Class<MuscleJson> getEntityClass() {
-        return MuscleJson.class;
-    }
-
 }

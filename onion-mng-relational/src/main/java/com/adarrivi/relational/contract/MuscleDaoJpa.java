@@ -1,4 +1,4 @@
-package com.adarrivi.relational.dao;
+package com.adarrivi.relational.contract;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,12 +9,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.CrudContractName;
 import com.adarrivi.core.entity.Muscle;
 import com.adarrivi.relational.adapter.MuscleEntityAdapter;
-import com.adarrivi.relational.dao.repository.MuscleJpaRepository;
+import com.adarrivi.relational.contract.repository.MuscleJpaRepository;
 import com.adarrivi.relational.entity.MuscleEntity;
 
-@Repository("muscleDao")
+@Repository(CrudContractName.MUSCLE_CRUD)
 @Transactional(readOnly = true)
 public class MuscleDaoJpa implements CrudContract<Muscle> {
 

@@ -1,5 +1,6 @@
 package com.adarrivi.norelational.contract;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -19,10 +20,18 @@ abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
     @Autowired
     private InMemoryMap inMemoryMap;
 
+    private Class<T> jsonClass;
+
     private EntityAdapter<K, T> entityAdapter;
 
     protected GenericInMemoryDao(EntityAdapter<K, T> entityAdapter) {
         this.entityAdapter = entityAdapter;
+        setJsonClassFromGeneric();
+    }
+
+    @SuppressWarnings("unchecked")
+    private void setJsonClassFromGeneric() {
+        this.jsonClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
 
     @Override
@@ -37,7 +46,7 @@ abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
         List<K> allEntities = new ArrayList<>();
         for (Entry<String, String> entry : inMemoryMap.getMap().entrySet()) {
             if (entry.getKey().startsWith(getKeyPrefix())) {
-                T jsonEntity = jsonParserComponent.toJsonEntity(entry.getValue(), getEntityClass());
+                T jsonEntity = jsonParserComponent.toJsonEntity(entry.getValue(), jsonClass);
                 allEntities.add(entityAdapter.convertTo(jsonEntity));
             }
         }
@@ -47,7 +56,5 @@ abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
     protected abstract String getEntityKey(K entity);
 
     protected abstract String getKeyPrefix();
-
-    protected abstract Class<T> getEntityClass();
 
 }

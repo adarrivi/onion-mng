@@ -1,4 +1,4 @@
-package com.adarrivi.relational.dao.repository;
+package com.adarrivi.relational.contract.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

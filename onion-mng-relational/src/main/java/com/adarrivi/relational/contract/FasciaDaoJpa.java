@@ -1,4 +1,4 @@
-package com.adarrivi.relational.dao;
+package com.adarrivi.relational.contract;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,12 +9,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.CrudContractName;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.relational.adapter.FasciaEntityAdapter;
-import com.adarrivi.relational.dao.repository.FasciaJpaRepository;
+import com.adarrivi.relational.contract.repository.FasciaJpaRepository;
 import com.adarrivi.relational.entity.FasciaEntity;
 
-@Repository("fasciaDao")
+@Repository(CrudContractName.FASCIA_CRUD)
 @Transactional(readOnly = true)
 public class FasciaDaoJpa implements CrudContract<Fascia> {
 
