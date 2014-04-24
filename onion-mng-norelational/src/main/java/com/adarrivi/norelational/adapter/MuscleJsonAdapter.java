@@ -3,9 +3,6 @@ package com.adarrivi.norelational.adapter;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Anchor;
 import com.adarrivi.core.entity.Bone;
@@ -16,12 +13,9 @@ import com.adarrivi.norelational.entity.BoneJson;
 import com.adarrivi.norelational.entity.FasciaJson;
 import com.adarrivi.norelational.entity.MuscleJson;
 
-@Component
 public class MuscleJsonAdapter implements EntityAdapter<Muscle, MuscleJson> {
 
-    @Autowired
     private BoneJsonAdapter boneJsonAdapter;
-    @Autowired
     private FasciaJsonAdapter fasciaJsonAdapter;
 
     @Override

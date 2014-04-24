@@ -1,63 +1,67 @@
 package com.adarrivi.relational;
 
-import java.util.Properties;
-
-import javax.sql.DataSource;
-
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.orm.jpa.JpaTransactionManager;
-import org.springframework.orm.jpa.JpaVendorAdapter;
-import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
-import org.springframework.orm.jpa.vendor.Database;
-import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
-import org.springframework.transaction.PlatformTransactionManager;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.context.annotation.Import;
+
+import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.entity.Bone;
+import com.adarrivi.core.entity.Fascia;
+import com.adarrivi.core.entity.Joint;
+import com.adarrivi.core.entity.Muscle;
+import com.adarrivi.core.service.management.BoneManagementService;
+import com.adarrivi.core.service.management.FasciaManagementService;
+import com.adarrivi.core.service.management.JointManagementService;
+import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.relational.contract.BoneDaoJpa;
+import com.adarrivi.relational.contract.FasciaDaoJpa;
+import com.adarrivi.relational.contract.JointDaoJpa;
+import com.adarrivi.relational.contract.MuscleDaoJpa;
 
 @Configuration
-@ComponentScan(basePackages = { "com.adarrivi.relational", "com.adarrivi.core" })
-@EnableJpaRepositories("com.adarrivi.relational")
-@EnableTransactionManagement
+@ComponentScan("com.adarrivi")
+@Import(DaoRelationalConfiguration.class)
 public class RelationalConfiguration {
 
     @Bean
-    public DataSource dataSource() {
-        EmbeddedDatabaseBuilder databaseBuilder = new EmbeddedDatabaseBuilder();
-        return databaseBuilder.setType(EmbeddedDatabaseType.HSQL).addScript("classpath:hsqldbSchema.sql").build();
+    public CrudContract<Bone> boneDaoJpa() {
+        return new BoneDaoJpa();
     }
 
     @Bean
-    public PlatformTransactionManager transactionManager() {
-        JpaTransactionManager txManager = new JpaTransactionManager();
-        txManager.setEntityManagerFactory(entityManagerFactory().nativeEntityManagerFactory);
-        return txManager;
+    public CrudContract<Fascia> fasciaDaoJpa() {
+        return new FasciaDaoJpa();
     }
 
     @Bean
-    public JpaVendorAdapter hibernateVendorAdapter() {
-        HibernateJpaVendorAdapter hibernateJpaVendorAdapter = new HibernateJpaVendorAdapter();
-        hibernateJpaVendorAdapter.setShowSql(false);
-        hibernateJpaVendorAdapter.setGenerateDdl(true);
-        hibernateJpaVendorAdapter.setDatabase(Database.HSQL);
-        return hibernateJpaVendorAdapter;
+    public CrudContract<Joint> jointDaoJpa() {
+        return new JointDaoJpa();
     }
 
     @Bean
-    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
-        LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
-        entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setPackagesToScan("com.adarrivi.relational");
-        entityManagerFactory.setJpaVendorAdapter(hibernateVendorAdapter());
-        Properties properties = new Properties();
-        properties.put("hibernate.connection.autocommit", true);
-        properties.put("hibernate.format_sql", true);
-        properties.put("hibernate.show_sql", false);
-        properties.put("use_sql_comments", true);
-        entityManagerFactory.setJpaProperties(properties);
-        return entityManagerFactory;
+    public CrudContract<Muscle> muscleDaoJpa() {
+        return new MuscleDaoJpa();
+    }
+
+    @Bean
+    public BoneManagementService boneManagementService(CrudContract<Bone> boneDaoJpa) {
+        BoneManagementService boneManagementService = new BoneManagementService(boneDaoJpa);
+        return boneManagementService;
+    }
+
+    @Bean
+    public FasciaManagementService fasciaManagementService(CrudContract<Fascia> fasciaDaoJpa) {
+        return new FasciaManagementService(fasciaDaoJpa);
+    }
+
+    @Bean
+    public JointManagementService jointManagementService(CrudContract<Joint> jointDaoJpa) {
+        return new JointManagementService(jointDaoJpa);
+    }
+
+    @Bean
+    public MuscleManagementService muscleManagementService(CrudContract<Muscle> muscleDaoJpa) {
+        return new MuscleManagementService(muscleDaoJpa);
     }
 }

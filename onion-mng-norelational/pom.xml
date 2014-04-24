@@ -18,6 +18,14 @@
 			<artifactId>onion-mng-core</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
+		
+		<!-- Dependency Injection container -->
+		<dependency>
+			<groupId>com.google.inject</groupId>
+			<artifactId>guice</artifactId>
+			<version>${guice.version}</version>
+		</dependency>
+
 
 		<!-- POJO - Json parser -->
 		<dependency>

@@ -6,18 +6,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.contract.CrudContract;
 import com.adarrivi.norelational.adapter.JsonParserComponent;
 
 abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
 
-    @Autowired
     private JsonParserComponent jsonParserComponent;
 
-    @Autowired
     private InMemoryMap inMemoryMap;
 
     private Class<T> jsonClass;

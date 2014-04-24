@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Joint;
@@ -18,14 +17,11 @@ public abstract class CreateSomeElementsApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(CreateSomeElementsApplication.class);
 
-    @SuppressWarnings("resource")
-    public void start() {
-        AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(getConfigurationClass());
-        applicationContext.registerShutdownHook();
+    private BoneManagementService boneManagementService;
+    private MuscleManagementService muscleManagementService;
+    private JointManagementService jointManagementService;
 
-        BoneManagementService boneManagementService = applicationContext.getBean(BoneManagementService.class);
-        MuscleManagementService muscleManagementService = applicationContext.getBean(MuscleManagementService.class);
-        JointManagementService jointManagementService = applicationContext.getBean(JointManagementService.class);
+    public void start() {
 
         Bone humerus = new Bone("humerus", RelativePosition.LEFT);
         Bone scapula = new Bone("scapula", RelativePosition.LEFT);
@@ -42,5 +38,15 @@ public abstract class CreateSomeElementsApplication {
         LOG.debug("Joint list: {}", jointManagementService.findAll());
     }
 
-    protected abstract Class<?> getConfigurationClass();
+    protected void setBoneManagementService(BoneManagementService boneManagementService) {
+        this.boneManagementService = boneManagementService;
+    }
+
+    protected void setMuscleManagementService(MuscleManagementService muscleManagementService) {
+        this.muscleManagementService = muscleManagementService;
+    }
+
+    protected void setJointManagementService(JointManagementService jointManagementService) {
+        this.jointManagementService = jointManagementService;
+    }
 }

@@ -9,13 +9,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adarrivi.core.contract.CrudContract;
-import com.adarrivi.core.contract.CrudContractName;
 import com.adarrivi.core.entity.Bone;
 import com.adarrivi.relational.adapter.BoneEntityAdapter;
 import com.adarrivi.relational.contract.repository.BoneJpaRepository;
 import com.adarrivi.relational.entity.BoneEntity;
 
-@Repository(CrudContractName.BONE_CRUD)
+@Repository
 @Transactional(readOnly = true)
 public class BoneDaoJpa implements CrudContract<Bone> {
 

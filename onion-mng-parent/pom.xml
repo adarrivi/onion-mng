@@ -13,6 +13,7 @@
 		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
 		<org.springframework.data-jpa.version>1.5.0.RELEASE</org.springframework.data-jpa.version>
 		<org.hibernate.jpa.version>1.0.1.Final</org.hibernate.jpa.version>
+		<guice.version>3.0</guice.version>
 		<jackson.version>1.9.13</jackson.version>
 		<hibernate.version>4.2.9.Final</hibernate.version>
 		<hsqldb.version>2.3.2</hsqldb.version>

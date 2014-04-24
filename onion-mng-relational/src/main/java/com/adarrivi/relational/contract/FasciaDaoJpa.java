@@ -9,13 +9,12 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.adarrivi.core.contract.CrudContract;
-import com.adarrivi.core.contract.CrudContractName;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.relational.adapter.FasciaEntityAdapter;
 import com.adarrivi.relational.contract.repository.FasciaJpaRepository;
 import com.adarrivi.relational.entity.FasciaEntity;
 
-@Repository(CrudContractName.FASCIA_CRUD)
+@Repository
 @Transactional(readOnly = true)
 public class FasciaDaoJpa implements CrudContract<Fascia> {
 

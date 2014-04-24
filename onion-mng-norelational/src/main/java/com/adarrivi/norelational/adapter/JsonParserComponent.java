@@ -2,15 +2,10 @@ package com.adarrivi.norelational.adapter;
 
 import java.io.IOException;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.adarrivi.norelational.exception.InvalidEntityException;
 
-@Component
 public class JsonParserComponent {
 
-    @Autowired
     private ObjectMapperProvider objectMapperProvider;
 
     JsonParserComponent() {
