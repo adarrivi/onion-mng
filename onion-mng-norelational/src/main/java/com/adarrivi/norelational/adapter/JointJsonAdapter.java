@@ -1,11 +1,14 @@
 package com.adarrivi.norelational.adapter;
 
+import javax.inject.Inject;
+
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.norelational.entity.JointJson;
 
 public class JointJsonAdapter implements EntityAdapter<Joint, JointJson> {
 
+    @Inject
     private BoneJsonAdapter boneJsonAdapter;
 
     @Override

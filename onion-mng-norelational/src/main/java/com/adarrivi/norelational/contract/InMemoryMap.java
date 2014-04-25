@@ -3,7 +3,7 @@ package com.adarrivi.norelational.contract;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-class InMemoryMap {
+public class InMemoryMap {
 
     private ConcurrentMap<String, String> map = new ConcurrentHashMap<>();
 

@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,9 +19,9 @@ import com.adarrivi.relational.entity.FasciaEntity;
 @Transactional(readOnly = true)
 public class FasciaDaoJpa implements CrudContract<Fascia> {
 
-    @Autowired
+    @Inject
     private FasciaJpaRepository fasciaJpaRepository;
-    @Autowired
+    @Inject
     private FasciaEntityAdapter fasciaEntityAdapter;
 
     @Override

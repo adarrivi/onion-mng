@@ -14,35 +14,11 @@ import com.adarrivi.core.service.management.BoneManagementService;
 import com.adarrivi.core.service.management.FasciaManagementService;
 import com.adarrivi.core.service.management.JointManagementService;
 import com.adarrivi.core.service.management.MuscleManagementService;
-import com.adarrivi.relational.contract.BoneDaoJpa;
-import com.adarrivi.relational.contract.FasciaDaoJpa;
-import com.adarrivi.relational.contract.JointDaoJpa;
-import com.adarrivi.relational.contract.MuscleDaoJpa;
 
 @Configuration
 @ComponentScan("com.adarrivi")
 @Import(DaoRelationalConfiguration.class)
 public class RelationalConfiguration {
-
-    @Bean
-    public CrudContract<Bone> boneDaoJpa() {
-        return new BoneDaoJpa();
-    }
-
-    @Bean
-    public CrudContract<Fascia> fasciaDaoJpa() {
-        return new FasciaDaoJpa();
-    }
-
-    @Bean
-    public CrudContract<Joint> jointDaoJpa() {
-        return new JointDaoJpa();
-    }
-
-    @Bean
-    public CrudContract<Muscle> muscleDaoJpa() {
-        return new MuscleDaoJpa();
-    }
 
     @Bean
     public BoneManagementService boneManagementService(CrudContract<Bone> boneDaoJpa) {

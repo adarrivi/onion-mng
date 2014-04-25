@@ -11,6 +11,7 @@ public class NoRelationalMain extends CreateSomeElementsApplication {
 
     public static void main(String[] args) {
         new NoRelationalMain().run();
+
     }
 
     private void run() {
@@ -18,6 +19,7 @@ public class NoRelationalMain extends CreateSomeElementsApplication {
         setBoneManagementService(injector.getInstance(BoneManagementService.class));
         setMuscleManagementService(injector.getInstance(MuscleManagementService.class));
         setJointManagementService(injector.getInstance(JointManagementService.class));
+        start();
     }
 
 }

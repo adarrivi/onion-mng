@@ -2,10 +2,13 @@ package com.adarrivi.norelational.adapter;
 
 import java.io.IOException;
 
+import javax.inject.Inject;
+
 import com.adarrivi.norelational.exception.InvalidEntityException;
 
 public class JsonParserComponent {
 
+    @Inject
     private ObjectMapperProvider objectMapperProvider;
 
     JsonParserComponent() {

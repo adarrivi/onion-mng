@@ -6,7 +6,7 @@ import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.relational.entity.FasciaEntity;
 
-@Component("fasciaEntityAdapter")
+@Component
 public class FasciaEntityAdapter implements EntityAdapter<Fascia, FasciaEntity> {
 
     @Override

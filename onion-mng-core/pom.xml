@@ -11,6 +11,13 @@
 	</parent>
 
 	<dependencies>
+		<!-- Standard JSR-330 for dependency injection for Java -->
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>${javax.inject.version}</version>
+		</dependency>
+
 		<!-- Logging -->
 		<!-- Abstract login that allow us to change the underlying logging implementation -->
 		<dependency>

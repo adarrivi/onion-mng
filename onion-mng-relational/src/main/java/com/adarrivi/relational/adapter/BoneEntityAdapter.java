@@ -6,7 +6,7 @@ import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Bone;
 import com.adarrivi.relational.entity.BoneEntity;
 
-@Component("boneEntityAdapter")
+@Component
 public class BoneEntityAdapter implements EntityAdapter<Bone, BoneEntity> {
 
     @Override

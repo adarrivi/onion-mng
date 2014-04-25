@@ -18,7 +18,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
-@EnableJpaRepositories("com.adarrivi.relational")
+@EnableJpaRepositories("com.adarrivi.relational.contract.repository")
 @EnableTransactionManagement
 public class DaoRelationalConfiguration {
 

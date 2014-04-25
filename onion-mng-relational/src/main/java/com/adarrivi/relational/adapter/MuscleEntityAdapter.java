@@ -3,7 +3,8 @@ package com.adarrivi.relational.adapter;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Component;
 
 import com.adarrivi.core.adapter.EntityAdapter;
@@ -15,14 +16,14 @@ import com.adarrivi.relational.contract.repository.FasciaJpaRepository;
 import com.adarrivi.relational.entity.AnchorEntity;
 import com.adarrivi.relational.entity.MuscleEntity;
 
-@Component("muscleEntityAdapter")
+@Component
 public class MuscleEntityAdapter implements EntityAdapter<Muscle, MuscleEntity> {
 
-    @Autowired
+    @Inject
     private AnchorEntityAdapter anchorEntityAdapter;
-    @Autowired
+    @Inject
     private FasciaJpaRepository fasciaJpaRepository;
-    @Autowired
+    @Inject
     private BoneJpaRepository boneJpaRepository;
 
     @Override

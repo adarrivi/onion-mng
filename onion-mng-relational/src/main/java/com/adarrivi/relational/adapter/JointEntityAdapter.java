@@ -1,6 +1,7 @@
 package com.adarrivi.relational.adapter;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Component;
 
 import com.adarrivi.core.adapter.EntityAdapter;
@@ -9,12 +10,12 @@ import com.adarrivi.relational.contract.repository.BoneJpaRepository;
 import com.adarrivi.relational.entity.BoneEntity;
 import com.adarrivi.relational.entity.JointEntity;
 
-@Component("jointEntityAdapter")
+@Component
 public class JointEntityAdapter implements EntityAdapter<Joint, JointEntity> {
 
-    @Autowired
+    @Inject
     private BoneEntityAdapter boneEntityAdapter;
-    @Autowired
+    @Inject
     private BoneJpaRepository boneJpaRepository;
 
     @Override

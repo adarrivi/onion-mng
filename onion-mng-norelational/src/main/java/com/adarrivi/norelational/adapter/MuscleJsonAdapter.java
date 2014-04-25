@@ -3,6 +3,8 @@ package com.adarrivi.norelational.adapter;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.inject.Inject;
+
 import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.entity.Anchor;
 import com.adarrivi.core.entity.Bone;
@@ -15,7 +17,9 @@ import com.adarrivi.norelational.entity.MuscleJson;
 
 public class MuscleJsonAdapter implements EntityAdapter<Muscle, MuscleJson> {
 
+    @Inject
     private BoneJsonAdapter boneJsonAdapter;
+    @Inject
     private FasciaJsonAdapter fasciaJsonAdapter;
 
     @Override
