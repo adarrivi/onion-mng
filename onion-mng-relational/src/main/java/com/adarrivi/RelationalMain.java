@@ -3,9 +3,9 @@ package com.adarrivi;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.adarrivi.core.CreateSomeElementsApplication;
-import com.adarrivi.core.service.management.BoneManagementService;
-import com.adarrivi.core.service.management.JointManagementService;
-import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.core.usercase.BoneManagementUserCase;
+import com.adarrivi.core.usercase.JointManagementUserCase;
+import com.adarrivi.core.usercase.MuscleManagementUserCase;
 import com.adarrivi.relational.RelationalConfiguration;
 
 public class RelationalMain extends CreateSomeElementsApplication {
@@ -19,9 +19,9 @@ public class RelationalMain extends CreateSomeElementsApplication {
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext(RelationalConfiguration.class);
         applicationContext.registerShutdownHook();
 
-        setBoneManagementService(applicationContext.getBean(BoneManagementService.class));
-        setMuscleManagementService(applicationContext.getBean(MuscleManagementService.class));
-        setJointManagementService(applicationContext.getBean(JointManagementService.class));
+        setBoneManagementUserCase(applicationContext.getBean(BoneManagementUserCase.class));
+        setMuscleManagementUserCase(applicationContext.getBean(MuscleManagementUserCase.class));
+        setJointManagementUserCase(applicationContext.getBean(JointManagementUserCase.class));
 
         start();
 

@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.BoneEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class BoneDaoJpa implements CrudContract<Bone> {
+public class BoneCrudContractJpa implements CrudContract<Bone> {
 
     @Inject
     private BoneJpaRepository boneJpaRepository;

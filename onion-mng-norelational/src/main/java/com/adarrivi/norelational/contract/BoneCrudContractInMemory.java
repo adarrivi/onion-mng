@@ -6,10 +6,10 @@ import com.adarrivi.core.entity.Bone;
 import com.adarrivi.norelational.adapter.BoneJsonAdapter;
 import com.adarrivi.norelational.entity.BoneJson;
 
-public class BoneDaoInMemory extends GenericInMemoryDao<Bone, BoneJson> {
+public class BoneCrudContractInMemory extends GenericCrudContractInMemory<Bone, BoneJson> {
 
     @Inject
-    BoneDaoInMemory(BoneJsonAdapter boneJsonAdapter) {
+    BoneCrudContractInMemory(BoneJsonAdapter boneJsonAdapter) {
         super(boneJsonAdapter);
     }
 

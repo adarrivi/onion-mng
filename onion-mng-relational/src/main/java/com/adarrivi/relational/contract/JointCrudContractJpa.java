@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.JointEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class JointDaoJpa implements CrudContract<Joint> {
+public class JointCrudContractJpa implements CrudContract<Joint> {
 
     @Inject
     private JointJpaRepository jointJpaRepository;

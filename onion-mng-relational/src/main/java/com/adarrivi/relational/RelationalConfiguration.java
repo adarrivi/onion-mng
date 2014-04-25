@@ -10,10 +10,10 @@ import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.core.entity.Muscle;
-import com.adarrivi.core.service.management.BoneManagementService;
-import com.adarrivi.core.service.management.FasciaManagementService;
-import com.adarrivi.core.service.management.JointManagementService;
-import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.core.usercase.BoneManagementUserCase;
+import com.adarrivi.core.usercase.FasciaManagementUserCase;
+import com.adarrivi.core.usercase.JointManagementUserCase;
+import com.adarrivi.core.usercase.MuscleManagementUserCase;
 
 @Configuration
 @ComponentScan("com.adarrivi")
@@ -21,23 +21,22 @@ import com.adarrivi.core.service.management.MuscleManagementService;
 public class RelationalConfiguration {
 
     @Bean
-    public BoneManagementService boneManagementService(CrudContract<Bone> boneDaoJpa) {
-        BoneManagementService boneManagementService = new BoneManagementService(boneDaoJpa);
-        return boneManagementService;
+    public BoneManagementUserCase boneManagementUserCase(CrudContract<Bone> boneCrudContractJpa) {
+        return new BoneManagementUserCase(boneCrudContractJpa);
     }
 
     @Bean
-    public FasciaManagementService fasciaManagementService(CrudContract<Fascia> fasciaDaoJpa) {
-        return new FasciaManagementService(fasciaDaoJpa);
+    public FasciaManagementUserCase fasciaManagementUserCase(CrudContract<Fascia> fasciaCrudContractJpa) {
+        return new FasciaManagementUserCase(fasciaCrudContractJpa);
     }
 
     @Bean
-    public JointManagementService jointManagementService(CrudContract<Joint> jointDaoJpa) {
-        return new JointManagementService(jointDaoJpa);
+    public JointManagementUserCase jointManagementUserCase(CrudContract<Joint> jointCrudContractJpa) {
+        return new JointManagementUserCase(jointCrudContractJpa);
     }
 
     @Bean
-    public MuscleManagementService muscleManagementService(CrudContract<Muscle> muscleDaoJpa) {
-        return new MuscleManagementService(muscleDaoJpa);
+    public MuscleManagementUserCase muscleManagementUserCase(CrudContract<Muscle> muscleCrudContractJpa) {
+        return new MuscleManagementUserCase(muscleCrudContractJpa);
     }
 }

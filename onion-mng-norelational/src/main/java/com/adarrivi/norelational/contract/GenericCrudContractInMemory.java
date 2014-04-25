@@ -12,7 +12,7 @@ import com.adarrivi.core.adapter.EntityAdapter;
 import com.adarrivi.core.contract.CrudContract;
 import com.adarrivi.norelational.adapter.JsonParserComponent;
 
-abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
+abstract class GenericCrudContractInMemory<K, T> implements CrudContract<K> {
 
     @Inject
     private JsonParserComponent jsonParserComponent;
@@ -23,7 +23,7 @@ abstract class GenericInMemoryDao<K, T> implements CrudContract<K> {
 
     private EntityAdapter<K, T> entityAdapter;
 
-    protected GenericInMemoryDao(EntityAdapter<K, T> entityAdapter) {
+    protected GenericCrudContractInMemory(EntityAdapter<K, T> entityAdapter) {
         this.entityAdapter = entityAdapter;
         setJsonClassFromGeneric();
     }

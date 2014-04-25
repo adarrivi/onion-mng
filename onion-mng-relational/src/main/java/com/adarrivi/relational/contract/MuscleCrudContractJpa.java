@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.MuscleEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class MuscleDaoJpa implements CrudContract<Muscle> {
+public class MuscleCrudContractJpa implements CrudContract<Muscle> {
 
     @Inject
     private MuscleJpaRepository muscleJpaRepository;

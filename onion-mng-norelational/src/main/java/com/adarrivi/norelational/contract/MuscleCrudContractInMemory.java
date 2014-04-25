@@ -6,9 +6,9 @@ import com.adarrivi.core.entity.Muscle;
 import com.adarrivi.norelational.adapter.MuscleJsonAdapter;
 import com.adarrivi.norelational.entity.MuscleJson;
 
-public class MuscleDaoInMemory extends GenericInMemoryDao<Muscle, MuscleJson> {
+public class MuscleCrudContractInMemory extends GenericCrudContractInMemory<Muscle, MuscleJson> {
     @Inject
-    MuscleDaoInMemory(MuscleJsonAdapter muscleJsonAdapter) {
+    MuscleCrudContractInMemory(MuscleJsonAdapter muscleJsonAdapter) {
         super(muscleJsonAdapter);
     }
 

@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.FasciaEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class FasciaDaoJpa implements CrudContract<Fascia> {
+public class FasciaCrudContractJpa implements CrudContract<Fascia> {
 
     @Inject
     private FasciaJpaRepository fasciaJpaRepository;

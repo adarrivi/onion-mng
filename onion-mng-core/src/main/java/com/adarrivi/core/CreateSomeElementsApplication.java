@@ -9,17 +9,17 @@ import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.core.entity.Muscle;
 import com.adarrivi.core.entity.RelativePosition;
-import com.adarrivi.core.service.management.BoneManagementService;
-import com.adarrivi.core.service.management.JointManagementService;
-import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.core.usercase.BoneManagementUserCase;
+import com.adarrivi.core.usercase.JointManagementUserCase;
+import com.adarrivi.core.usercase.MuscleManagementUserCase;
 
 public abstract class CreateSomeElementsApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(CreateSomeElementsApplication.class);
 
-    private BoneManagementService boneManagementService;
-    private MuscleManagementService muscleManagementService;
-    private JointManagementService jointManagementService;
+    private BoneManagementUserCase boneManagementUserCase;
+    private MuscleManagementUserCase muscleManagementUserCase;
+    private JointManagementUserCase jointManagementUserCase;
 
     public void start() {
 
@@ -28,25 +28,25 @@ public abstract class CreateSomeElementsApplication {
         Muscle deltoid = new Muscle("deltoid", RelativePosition.LEFT, Arrays.asList(humerus, scapula));
         Joint glenohumeral = new Joint("glenohumeral", RelativePosition.LEFT, humerus, scapula);
 
-        boneManagementService.create(humerus);
-        boneManagementService.create(scapula);
-        muscleManagementService.create(deltoid);
-        jointManagementService.create(glenohumeral);
+        boneManagementUserCase.create(humerus);
+        boneManagementUserCase.create(scapula);
+        muscleManagementUserCase.create(deltoid);
+        jointManagementUserCase.create(glenohumeral);
 
-        LOG.debug("Bone list: {}", boneManagementService.findAll());
-        LOG.debug("Muscle list: {}", muscleManagementService.findAll());
-        LOG.debug("Joint list: {}", jointManagementService.findAll());
+        LOG.debug("Bone list: {}", boneManagementUserCase.findAll());
+        LOG.debug("Muscle list: {}", muscleManagementUserCase.findAll());
+        LOG.debug("Joint list: {}", jointManagementUserCase.findAll());
     }
 
-    protected void setBoneManagementService(BoneManagementService boneManagementService) {
-        this.boneManagementService = boneManagementService;
+    protected void setBoneManagementUserCase(BoneManagementUserCase boneManagementUserCase) {
+        this.boneManagementUserCase = boneManagementUserCase;
     }
 
-    protected void setMuscleManagementService(MuscleManagementService muscleManagementService) {
-        this.muscleManagementService = muscleManagementService;
+    protected void setMuscleManagementUserCase(MuscleManagementUserCase muscleManagementUserCase) {
+        this.muscleManagementUserCase = muscleManagementUserCase;
     }
 
-    protected void setJointManagementService(JointManagementService jointManagementService) {
-        this.jointManagementService = jointManagementService;
+    protected void setJointManagementUserCase(JointManagementUserCase jointManagementUserCase) {
+        this.jointManagementUserCase = jointManagementUserCase;
     }
 }

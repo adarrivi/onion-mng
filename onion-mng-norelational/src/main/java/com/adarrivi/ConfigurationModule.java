@@ -6,21 +6,21 @@ import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.core.entity.Muscle;
-import com.adarrivi.core.service.management.BoneManagementService;
-import com.adarrivi.core.service.management.FasciaManagementService;
-import com.adarrivi.core.service.management.JointManagementService;
-import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.core.usercase.BoneManagementUserCase;
+import com.adarrivi.core.usercase.FasciaManagementUserCase;
+import com.adarrivi.core.usercase.JointManagementUserCase;
+import com.adarrivi.core.usercase.MuscleManagementUserCase;
 import com.adarrivi.norelational.adapter.BoneJsonAdapter;
 import com.adarrivi.norelational.adapter.FasciaJsonAdapter;
 import com.adarrivi.norelational.adapter.JointJsonAdapter;
 import com.adarrivi.norelational.adapter.JsonParserComponent;
 import com.adarrivi.norelational.adapter.MuscleJsonAdapter;
 import com.adarrivi.norelational.adapter.ObjectMapperProvider;
-import com.adarrivi.norelational.contract.BoneDaoInMemory;
-import com.adarrivi.norelational.contract.FasciaDaoInMemory;
+import com.adarrivi.norelational.contract.BoneCrudContractInMemory;
+import com.adarrivi.norelational.contract.FasciaCrudContractInMemory;
 import com.adarrivi.norelational.contract.InMemoryMap;
-import com.adarrivi.norelational.contract.JointDaoInMemory;
-import com.adarrivi.norelational.contract.MuscleDaoInMemory;
+import com.adarrivi.norelational.contract.JointCrudContractInMemory;
+import com.adarrivi.norelational.contract.MuscleCrudContractInMemory;
 import com.adarrivi.norelational.entity.BoneJson;
 import com.adarrivi.norelational.entity.FasciaJson;
 import com.adarrivi.norelational.entity.JointJson;
@@ -57,20 +57,20 @@ public class ConfigurationModule extends AbstractModule {
 
     private void bindContracts() {
         bind(new TypeLiteral<CrudContract<Bone>>() {
-        }).to(BoneDaoInMemory.class);
+        }).to(BoneCrudContractInMemory.class);
         bind(new TypeLiteral<CrudContract<Fascia>>() {
-        }).to(FasciaDaoInMemory.class);
+        }).to(FasciaCrudContractInMemory.class);
         bind(new TypeLiteral<CrudContract<Joint>>() {
-        }).to(JointDaoInMemory.class);
+        }).to(JointCrudContractInMemory.class);
         bind(new TypeLiteral<CrudContract<Muscle>>() {
-        }).to(MuscleDaoInMemory.class);
+        }).to(MuscleCrudContractInMemory.class);
     }
 
     private void bindServices() {
-        bind(BoneManagementService.class);
-        bind(FasciaManagementService.class);
-        bind(JointManagementService.class);
-        bind(MuscleManagementService.class);
+        bind(BoneManagementUserCase.class);
+        bind(FasciaManagementUserCase.class);
+        bind(JointManagementUserCase.class);
+        bind(MuscleManagementUserCase.class);
     }
 
 }

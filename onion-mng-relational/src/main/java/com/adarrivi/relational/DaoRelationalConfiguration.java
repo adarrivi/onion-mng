@@ -48,7 +48,7 @@ public class DaoRelationalConfiguration {
     public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource());
-        entityManagerFactory.setPackagesToScan("com.adarrivi.relational");
+        entityManagerFactory.setPackagesToScan("com.adarrivi.relational.entity");
         entityManagerFactory.setJpaVendorAdapter(hibernateVendorAdapter());
         Properties properties = new Properties();
         properties.put("hibernate.connection.autocommit", true);

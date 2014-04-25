@@ -1,9 +1,9 @@
 package com.adarrivi;
 
 import com.adarrivi.core.CreateSomeElementsApplication;
-import com.adarrivi.core.service.management.BoneManagementService;
-import com.adarrivi.core.service.management.JointManagementService;
-import com.adarrivi.core.service.management.MuscleManagementService;
+import com.adarrivi.core.usercase.BoneManagementUserCase;
+import com.adarrivi.core.usercase.JointManagementUserCase;
+import com.adarrivi.core.usercase.MuscleManagementUserCase;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -16,9 +16,9 @@ public class NoRelationalMain extends CreateSomeElementsApplication {
 
     private void run() {
         Injector injector = Guice.createInjector(new ConfigurationModule());
-        setBoneManagementService(injector.getInstance(BoneManagementService.class));
-        setMuscleManagementService(injector.getInstance(MuscleManagementService.class));
-        setJointManagementService(injector.getInstance(JointManagementService.class));
+        setBoneManagementUserCase(injector.getInstance(BoneManagementUserCase.class));
+        setMuscleManagementUserCase(injector.getInstance(MuscleManagementUserCase.class));
+        setJointManagementUserCase(injector.getInstance(JointManagementUserCase.class));
         start();
     }
 

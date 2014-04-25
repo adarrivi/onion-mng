@@ -6,9 +6,9 @@ import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.norelational.adapter.FasciaJsonAdapter;
 import com.adarrivi.norelational.entity.FasciaJson;
 
-public class FasciaDaoInMemory extends GenericInMemoryDao<Fascia, FasciaJson> {
+public class FasciaCrudContractInMemory extends GenericCrudContractInMemory<Fascia, FasciaJson> {
     @Inject
-    FasciaDaoInMemory(FasciaJsonAdapter fasciaJsonAdapter) {
+    FasciaCrudContractInMemory(FasciaJsonAdapter fasciaJsonAdapter) {
         super(fasciaJsonAdapter);
     }
 
