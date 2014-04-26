@@ -18,7 +18,7 @@ public class Bone extends GenericAnchor {
         if (!super.equals(obj)) {
             return false;
         }
-        return (obj instanceof Bone);
+        return obj instanceof Bone;
     }
 
     @Override

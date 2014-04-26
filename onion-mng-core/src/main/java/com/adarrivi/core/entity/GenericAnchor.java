@@ -38,6 +38,6 @@ abstract class GenericAnchor implements Anchor {
             return false;
         }
         GenericAnchor other = (GenericAnchor) obj;
-        return (name.equals(other.name) && relativePosition.equals(other.relativePosition));
+        return name.equals(other.name) && relativePosition.equals(other.relativePosition);
     }
 }

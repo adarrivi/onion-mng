@@ -18,7 +18,7 @@ public class Fascia extends GenericAnchor {
         if (!super.equals(obj)) {
             return false;
         }
-        return (obj instanceof Fascia);
+        return obj instanceof Fascia;
     }
 
     @Override

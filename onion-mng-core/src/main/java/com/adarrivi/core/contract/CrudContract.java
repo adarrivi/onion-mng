@@ -2,7 +2,7 @@ package com.adarrivi.core.contract;
 
 import java.util.Collection;
 
-public interface CrudContract<K> {
+interface CrudContract<K> {
 
     void create(K entity);
 

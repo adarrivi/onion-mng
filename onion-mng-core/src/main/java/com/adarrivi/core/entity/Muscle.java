@@ -46,7 +46,7 @@ public class Muscle implements Named, RelativePositioned {
             return false;
         }
         Muscle other = (Muscle) obj;
-        return (name.equals(other.name) && relativePosition.equals(other.relativePosition) && Objects.equals(anchors, other.anchors));
+        return name.equals(other.name) && relativePosition.equals(other.relativePosition) && Objects.equals(anchors, other.anchors);
     }
 
     @Override

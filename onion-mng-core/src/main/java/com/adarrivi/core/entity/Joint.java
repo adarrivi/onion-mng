@@ -51,8 +51,8 @@ public class Joint implements Named, RelativePositioned {
             return false;
         }
         Joint other = (Joint) obj;
-        return (name.equals(other.name) && relativePosition.equals(other.relativePosition) && bone1.equals(other.bone1) && bone2
-                .equals(other.bone2));
+        return name.equals(other.name) && relativePosition.equals(other.relativePosition) && bone1.equals(other.bone1)
+                && bone2.equals(other.bone2);
     }
 
     @Override

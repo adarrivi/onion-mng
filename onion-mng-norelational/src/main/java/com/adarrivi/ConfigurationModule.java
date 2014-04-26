@@ -9,10 +9,6 @@ import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.core.entity.Muscle;
-import com.adarrivi.core.usercase.BoneManagementUserCase;
-import com.adarrivi.core.usercase.FasciaManagementUserCase;
-import com.adarrivi.core.usercase.JointManagementUserCase;
-import com.adarrivi.core.usercase.MuscleManagementUserCase;
 import com.adarrivi.norelational.adapter.BoneJsonAdapter;
 import com.adarrivi.norelational.adapter.FasciaJsonAdapter;
 import com.adarrivi.norelational.adapter.JointJsonAdapter;
@@ -38,7 +34,6 @@ public class ConfigurationModule extends AbstractModule {
         bindUtils();
         bindAdapters();
         bindContracts();
-        bindServices();
     }
 
     private void bindAdapters() {
@@ -63,13 +58,6 @@ public class ConfigurationModule extends AbstractModule {
         bind(FasciaCrudContract.class).to(FasciaCrudContractInMemory.class);
         bind(JointCrudContract.class).to(JointCrudContractInMemory.class);
         bind(MuscleCrudContract.class).to(MuscleCrudContractInMemory.class);
-    }
-
-    private void bindServices() {
-        bind(BoneManagementUserCase.class);
-        bind(FasciaManagementUserCase.class);
-        bind(JointManagementUserCase.class);
-        bind(MuscleManagementUserCase.class);
     }
 
 }
