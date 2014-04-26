@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.FasciaCrudContract;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.relational.adapter.FasciaEntityAdapter;
 import com.adarrivi.relational.contract.repository.FasciaJpaRepository;
@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.FasciaEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class FasciaCrudContractJpa implements CrudContract<Fascia> {
+public class FasciaCrudContractJpa implements FasciaCrudContract {
 
     @Inject
     private FasciaJpaRepository fasciaJpaRepository;

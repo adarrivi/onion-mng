@@ -2,11 +2,12 @@ package com.adarrivi.norelational.contract;
 
 import javax.inject.Inject;
 
+import com.adarrivi.core.contract.JointCrudContract;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.norelational.adapter.JointJsonAdapter;
 import com.adarrivi.norelational.entity.JointJson;
 
-public class JointCrudContractInMemory extends GenericCrudContractInMemory<Joint, JointJson> {
+public class JointCrudContractInMemory extends GenericCrudContractInMemory<Joint, JointJson> implements JointCrudContract {
     @Inject
     JointCrudContractInMemory(JointJsonAdapter jointJsonAdapter) {
         super(jointJsonAdapter);

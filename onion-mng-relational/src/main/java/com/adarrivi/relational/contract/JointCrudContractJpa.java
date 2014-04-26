@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.JointCrudContract;
 import com.adarrivi.core.entity.Joint;
 import com.adarrivi.relational.adapter.JointEntityAdapter;
 import com.adarrivi.relational.contract.repository.JointJpaRepository;
@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.JointEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class JointCrudContractJpa implements CrudContract<Joint> {
+public class JointCrudContractJpa implements JointCrudContract {
 
     @Inject
     private JointJpaRepository jointJpaRepository;

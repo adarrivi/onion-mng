@@ -2,11 +2,12 @@ package com.adarrivi.norelational.contract;
 
 import javax.inject.Inject;
 
+import com.adarrivi.core.contract.MuscleCrudContract;
 import com.adarrivi.core.entity.Muscle;
 import com.adarrivi.norelational.adapter.MuscleJsonAdapter;
 import com.adarrivi.norelational.entity.MuscleJson;
 
-public class MuscleCrudContractInMemory extends GenericCrudContractInMemory<Muscle, MuscleJson> {
+public class MuscleCrudContractInMemory extends GenericCrudContractInMemory<Muscle, MuscleJson> implements MuscleCrudContract {
     @Inject
     MuscleCrudContractInMemory(MuscleJsonAdapter muscleJsonAdapter) {
         super(muscleJsonAdapter);

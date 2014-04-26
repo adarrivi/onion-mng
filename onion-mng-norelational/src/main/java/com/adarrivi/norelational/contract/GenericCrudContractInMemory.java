@@ -9,10 +9,9 @@ import java.util.Map.Entry;
 import javax.inject.Inject;
 
 import com.adarrivi.core.adapter.EntityAdapter;
-import com.adarrivi.core.contract.CrudContract;
 import com.adarrivi.norelational.adapter.JsonParserComponent;
 
-abstract class GenericCrudContractInMemory<K, T> implements CrudContract<K> {
+abstract class GenericCrudContractInMemory<K, T> {
 
     @Inject
     private JsonParserComponent jsonParserComponent;
@@ -33,14 +32,12 @@ abstract class GenericCrudContractInMemory<K, T> implements CrudContract<K> {
         this.jsonClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[1];
     }
 
-    @Override
     public void create(K entity) {
         T entityJson = entityAdapter.convertFrom(entity);
         String jsonString = jsonParserComponent.toJsonString(entityJson);
         inMemoryMap.getMap().put(getEntityKey(entity), jsonString);
     }
 
-    @Override
     public Collection<K> findAll() {
         List<K> allEntities = new ArrayList<>();
         for (Entry<String, String> entry : inMemoryMap.getMap().entrySet()) {

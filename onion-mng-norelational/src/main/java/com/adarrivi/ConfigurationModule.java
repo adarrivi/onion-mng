@@ -1,7 +1,10 @@
 package com.adarrivi;
 
 import com.adarrivi.core.adapter.EntityAdapter;
-import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.BoneCrudContract;
+import com.adarrivi.core.contract.FasciaCrudContract;
+import com.adarrivi.core.contract.JointCrudContract;
+import com.adarrivi.core.contract.MuscleCrudContract;
 import com.adarrivi.core.entity.Bone;
 import com.adarrivi.core.entity.Fascia;
 import com.adarrivi.core.entity.Joint;
@@ -56,14 +59,10 @@ public class ConfigurationModule extends AbstractModule {
     }
 
     private void bindContracts() {
-        bind(new TypeLiteral<CrudContract<Bone>>() {
-        }).to(BoneCrudContractInMemory.class);
-        bind(new TypeLiteral<CrudContract<Fascia>>() {
-        }).to(FasciaCrudContractInMemory.class);
-        bind(new TypeLiteral<CrudContract<Joint>>() {
-        }).to(JointCrudContractInMemory.class);
-        bind(new TypeLiteral<CrudContract<Muscle>>() {
-        }).to(MuscleCrudContractInMemory.class);
+        bind(BoneCrudContract.class).to(BoneCrudContractInMemory.class);
+        bind(FasciaCrudContract.class).to(FasciaCrudContractInMemory.class);
+        bind(JointCrudContract.class).to(JointCrudContractInMemory.class);
+        bind(MuscleCrudContract.class).to(MuscleCrudContractInMemory.class);
     }
 
     private void bindServices() {

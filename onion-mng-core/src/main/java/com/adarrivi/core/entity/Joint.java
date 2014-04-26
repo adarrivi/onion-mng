@@ -1,5 +1,7 @@
 package com.adarrivi.core.entity;
 
+import java.util.Objects;
+
 public class Joint implements Named, RelativePositioned {
 
     private String name;
@@ -8,7 +10,6 @@ public class Joint implements Named, RelativePositioned {
     private Bone bone2;
 
     public Joint(String name, RelativePosition relativePosition, Bone bone1, Bone bone2) {
-        super();
         this.name = name;
         this.relativePosition = relativePosition;
         this.bone1 = bone1;
@@ -20,16 +21,10 @@ public class Joint implements Named, RelativePositioned {
         return name;
     }
 
-    /**
-     * @return the bone1
-     */
     public Bone getBone1() {
         return bone1;
     }
 
-    /**
-     * @return the bone2
-     */
     public Bone getBone2() {
         return bone2;
     }
@@ -39,11 +34,27 @@ public class Joint implements Named, RelativePositioned {
         return relativePosition;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
-     * @see java.lang.Object#toString()
-     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, relativePosition, bone1, bone2);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (!(obj instanceof Joint)) {
+            return false;
+        }
+        Joint other = (Joint) obj;
+        return (name.equals(other.name) && relativePosition.equals(other.relativePosition) && bone1.equals(other.bone1) && bone2
+                .equals(other.bone2));
+    }
+
     @Override
     public String toString() {
         return "Joint [name=" + name + ", relativePosition=" + relativePosition + ", bone1=" + bone1 + ", bone2=" + bone2 + "]";

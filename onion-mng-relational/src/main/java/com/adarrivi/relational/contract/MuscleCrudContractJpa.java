@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.adarrivi.core.contract.CrudContract;
+import com.adarrivi.core.contract.MuscleCrudContract;
 import com.adarrivi.core.entity.Muscle;
 import com.adarrivi.relational.adapter.MuscleEntityAdapter;
 import com.adarrivi.relational.contract.repository.MuscleJpaRepository;
@@ -17,7 +17,7 @@ import com.adarrivi.relational.entity.MuscleEntity;
 
 @Repository
 @Transactional(readOnly = true)
-public class MuscleCrudContractJpa implements CrudContract<Muscle> {
+public class MuscleCrudContractJpa implements MuscleCrudContract {
 
     @Inject
     private MuscleJpaRepository muscleJpaRepository;

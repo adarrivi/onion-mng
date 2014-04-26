@@ -1,7 +1,6 @@
 package com.adarrivi.test.builder;
 
 import com.adarrivi.core.entity.Bone;
-import com.adarrivi.core.entity.Joint;
 import com.adarrivi.core.entity.RelativePosition;
 
 public class TestCoreBuilder {
@@ -12,10 +11,6 @@ public class TestCoreBuilder {
 
     public static Bone createBone() {
         return new Bone("humerus", RelativePosition.LEFT);
-    }
-
-    public static Joint createJoint() {
-        return new Joint("glenohumeral", RelativePosition.LEFT, createBone(), createBone());
     }
 
 }
